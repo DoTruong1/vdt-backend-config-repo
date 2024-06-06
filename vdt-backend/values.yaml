@@ -12,10 +12,6 @@ image:
 
 env:
   values:
-    - name: DB_USER
-      value: vdt
-    - name: DB_PASSWORD
-      value: vdt1234
     - name: DB_PORT
       value: "3306"
     - name: DB_HOST
@@ -25,21 +21,18 @@ env:
     - name: PORT
       value: "3000"
   configmaps: {}
-  # - name: DB_USERNAME 
-  #   configMapName: nametestcm
-  #   configMapKey: tescmk
-  secrets: {}
-    # - name: DB_USERNAME
-    #   secretName: ai-platform-backend-secret
-    #   secretKey: db_username
-    # - name: DB_PASSWORD
-    #   secretName: ai-platform-backend-secret
-    #   secretKey: db_password
+  secrets: 
+    - name: DB_USER
+      secretName: backend-secret
+      secretKey: db_username
+    - name: DB_PASSWORD
+      secretName: backend-secret
+      secretKey: db_password
 
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "vdt-backend"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -59,11 +52,16 @@ podSecurityContext: {}
   # fsGroup: 2000
 
 securityContext: {}
-
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
 
 service:
   type: ClusterIP
-  port: 80
+  port: 3000
 
 ingress:
   enabled: false
