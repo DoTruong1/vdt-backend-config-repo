@@ -32,7 +32,7 @@ env:
 
 imagePullSecrets: []
 nameOverride: "vdt-api"
-fullnameOverride: "vdt-backend"
+fullnameOverride: "vdt-api"
 
 serviceAccount:
   # Specifies whether a service account should be created
