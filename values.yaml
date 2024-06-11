@@ -22,6 +22,14 @@ env:
       value: "3000"
     - name: DB_NAME
       value: users
+    - name: KEYCLOAK_URL
+      value: https://keycloak.dotv.home.arpa/
+    - name: KEYCLOAK_REALM
+      value: vdt
+    - name: KEYCLOAK_CLIENT
+      value: vdt-be
+    - name: KEYCLOAK_CLIENT_SEC
+      value: tFxiUbw3Nx7uzKoRLDMrwtma7Z9TAMmN
   configmaps: {}
   secrets: 
     - name: DB_USER
